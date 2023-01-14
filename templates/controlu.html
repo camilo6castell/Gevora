@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid row align-items-start">
+        {% if session.get('usuario') == "Superadmin1@superadmin1.com" %}
+        <div class="container-fluid col-2 text-start"><a href="/home/sa" class="btn btn-dark" style="margin: 10px;"> Atrás </a></div>
+        {% else %} 
+        <div class="container-fluid col-2 text-start"><a href="/home/a" class="btn btn-dark" style="margin: 10px;"> Atrás </a></div>
+        {% endif %}
+        <div class="col-2"></div>
+        <div class="col-4"><img src="\static\images\gevora.png" alt="Gevora hotel" width="150"></div>
+        <div class="col-2"></div>
+        <div class="col-2 text-end"><a href="{{ url_for('log_out') }}" class="btn btn-dark" style="margin: 10px;"> Cerrar sesión </a></div>
+    </div>
+</div>  
+<br>
+<h4 id="change2">A continuación puedes administrar a los usuarios:</h4>
+<br>
+<div class="container-fluid row align-items-center" id="change">
+    <div class="col-4"></div>
+        <div class="col-4">
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light align-middle">
+                <tr>
+                    <th>#</th>
+                    <th>Usuario</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(rowN) %}
+                        {% if rowRaw[i][0] == 1 or rowRaw[i][0] == 2 %}
+                            {{ continue }}
+                        {% else %}
+                        <tr>
+                            <td>                    
+                                <p class="text-muted mb-0"> {{i-1}} </p>                                      
+                            </div>
+                            </td>
+                            <td>
+                                <p class="fw-bold mb-1"> {{rowRaw[i][1]}} </p>  
+                            </td>
+                            <td>
+                                <p>
+                                    <form action="/controlu/{{rowRaw[i][0]}}" method="post">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </p>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <div class="col-4"></div>
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+<script src="{{ url_for('static', filename='js/homeu.js') }}"></script>  
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid row align-items-start">
+        {% if session.get('usuario') == "Superadmin1@superadmin1.com" %}
+        <div class="container-fluid col-2 text-start"><a href="/home/sa" class="btn btn-dark" style="margin: 10px;"> Atrás </a></div>
+        {% else %} 
+        <div class="container-fluid col-2 text-start"><a href="/home/a" class="btn btn-dark" style="margin: 10px;"> Atrás </a></div>
+        {% endif %}
+        <div class="col-2"></div>
+        <div class="col-4"><img src="\static\images\gevora.png" alt="Gevora hotel" width="150"></div>
+        <div class="col-2"></div>
+        <div class="col-2 text-end"><a href="{{ url_for('log_out') }}" class="btn btn-dark" style="margin: 10px;"> Cerrar sesión </a></div>
+    </div>
+</div>  
+<br>
+<h4 id="change2">A continuación puedes administrar las habitaciones:</h4>
+<br>
+<div class="container-fluid row align-items-center" id="change">
+    <div class="col-5"></div>
+        <div class="col-2">
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                    
+                <tr>
+                    <th># habitación</th>
+                    {% if session.get('usuario') == "Superadmin1@superadmin1.com" %}
+                    <th>Acción</th>
+                    {% endif %}
+                </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(rowN) %}
+                        <tr>
+                            <td>                    
+                                <p class="text-muted mb-0"> {{i+1}} </p>                                      
+                            </div>
+                            </td>
+                            {% if session.get('usuario')  == "Superadmin1@superadmin1.com" %}
+                            <td>
+                                <p>
+                                    <form action="/controlh/{{rowRaw[i][0]}}" method="post">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </p>
+                            </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <div class="col-5"></div>
+</div>
+
+<br>
+
+<form action="/controlh/add" method="post">
+    <button type="submit" class="btn btn-success"> Agregar habitación</button>
+</form>
+
+<br><br><br><br><br><br>
+<script src="{{ url_for('static', filename='js/homeu.js') }}"></script>  
+{% endblock %}

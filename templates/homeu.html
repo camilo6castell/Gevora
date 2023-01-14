@@ -1,0 +1,77 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col-2"></div> 
+        <div class="col-2"></div>
+        <div class="col-4"><img src="\static\images\gevora.png" alt="Gevora hotel" width="150"></div>
+        <div class="col-2"></div>
+        <div class="col-2 text-end"><a href="{{ url_for('log_out') }}" class="btn btn-dark" style="margin: 10px;"> Cerrar sesión </a></div>
+    </div> 
+<br>
+<h4 id="change2">Hola {{ name }}, a continuación se muestran nuestras habitaciones y las acciones disponibles para ti: </h4>
+<br>
+
+<div class="container-fluid row align-items-center" id="change">
+    <div class="col-1">
+    </div>
+    <div class="col-10">
+        <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+                <tr>
+                    <th>Habitaciones</th>
+                    <th>Puntuación</th>
+                    <th>Puntuar y comentar</th>
+                    <th>Gestionar comentarios</th>
+                    <th>Reservar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(rowRoomsL) %}
+                    <tr>
+                        <form action="/home/re" method="post">   
+                            <td class="fw-bold mb-1">        
+                                <p><img src="\static\images\rooms.png" alt="" style="width: 45px; height: 45px" class="rounded-circle" /></p>
+                                <input type="text" name="id" value="{{ rowRooms[i] }}" hidden>
+                                <span>{{ rowRooms[i] }}</span>                                   
+                            </td>
+                            <td>
+                                {% if listProm[i] == 0 %}
+                                    <p class="fw-bold mb-1">Este cuarto aún no tiene</p>
+                                    <p class="text-muted mb-0">Estrellas</p>
+                                {% else %}
+                                    <p class="fw-bold mb-1">{{ listProm[i] }}</p>
+                                    <p class="text-muted mb-0">Estrellas</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <p><a href="/feedback/{{ rowRooms[i] }}" class="btn btn-warning">comentar y puntuar!</a></p>
+                            </td>
+                            <td>
+                                <p><a href="/editcom/{{ rowRooms[i] }}" class="btn btn-success">Administrar feedback de esta habitación</a></p>
+                            </td>
+                            <td>
+                                {% if rowRes[i] %}
+                                    <button disabled >Reservar</button>
+                                {% else %}
+                                    <button type="submit">Reservar</button>
+                                {% endif %}
+                                    {{ form.days() }} {{ form.days.label() }}  
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-1">
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+<script src="{{ url_for('static', filename='js/homeu.js') }}"></script>  
+{% endblock %}

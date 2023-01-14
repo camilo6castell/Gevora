@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid row align-items-start">
+        <div class="container-fluid col-2 text-start"><a href="/home" class="btn btn-dark" style="margin: 10px;"> Atrás </a></div> 
+        <div class="col-2"></div>
+        <div class="col-4"><img src="\static\images\gevora.png" alt="Gevora hotel" width="150"></div>
+        <div class="col-2"></div>
+        <div class="col-2 text-end"><a href="{{ url_for('log_out') }}" class="btn btn-dark" style="margin: 10px;"> Cerrar sesión </a></div>
+    </div>
+</div>  
+<br>
+<h4 id="change2">A continuación podras calificar y comentar nuestra habitación {{i}}</h4>
+<br><br><br>
+
+<div class="container-fluid row align-items-center" id="change">
+    <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                <tr>
+                    <th># de feedback</th>
+                    <th>puntuación dada</th>
+                    <th>comentario dado</th>
+                    <th>eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for j in range(rowN) %}
+                        {% if row[j][2] == i %}
+                        <tr>
+                            <td>                    
+                                <p class="fw-bold mb-1">{{j+1}}</p>                                     
+                            </div>
+                            </td>
+                            <td>
+                                <form action="/editcom/{{i}}/es" method="post">
+                                <input type="text" name="stars" value="{{ row[j][3] }}" size="1">
+                                <p><input style="visibility: hidden" name="id" value="{{ row[j][0] }}"></p>
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/editcom/{{i}}/co" method="post">
+                                <p><input style="visibility: hidden" name="id" value="{{ row[j][0] }}"></p>
+                                <textarea name="coment" id="" cols="30" rows="2">{{ row[j][4] }}</textarea>
+                                <p><button type="submit" class="btn btn-success">Guardar</button></p>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/editcom/{{i}}/del" method="post">
+                                <input style="visibility: hidden" name="id" value="{{ row[j][0] }}">
+                                <p><button type="submit" class="btn btn-danger">Eliminar</button></p>
+                                </form>
+                            </td>
+                            
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <div class="col-1"></div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br>
+<script src="{{ url_for('static', filename='js/homeu.js') }}"></script>  
+{% endblock %}

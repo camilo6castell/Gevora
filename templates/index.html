@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+
+<br>
+<img src="static\images\gevora.png" alt="Gevora hotel">
+<h4 class="titulo">¡Bienvenidos a nuestro hotel!</h4>
+<br>
+<h3 id="enunciado">Por favor inicie sesión para acceder a nuestros servicios:</h3>
+<br>
+<form action="/login" method="post" name="log_in_form" id="log_in_form">
+    <p><label for="user">Usuario: <input type="text" name="user" id="user" placeholder="********"></label></p>
+    <p><label for="pass">Contraseña: <input type="password" name="pass" id="pass" placeholder="********"></label> <img src="static\images\viewpass.png" alt="theeyethatseeseverything" id="showpass" width="30" title="Mostrar password"></p>
+    <button type="submit" id="btnShowPass">Ingresar!</button>
+</form>
+<br>
+<p>¿No tienes una cuenta? <a class="link" href="/signup" title="¡Para poder hacer reservas y puntuarnos!">¡registrate acá!</a></p>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>  
+
+{% endblock %}

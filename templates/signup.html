@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+
+    <br><br><br>
+    <h4>A continuación por favor ingresa tus datos para ser parte de nuestra comunidad</h4>
+    <br>
+    <form action="/signup/signup" method="post" name="sign_up_form" id="sign_up_form">
+        <p><label for="user"> <b>Tu correo será tu usuario: </b><input type="text" name="user" id="user"
+                    placeholder="********"></label></p>
+        <p><label for="pass"><b>Crea tu contraseña: </b><input type="password" name="pass" id="pass"
+                    placeholder="********"></label> <img src="\static\images\viewpass.png" alt="theeyethatseeseverything" id="showpass" width="30" title="Mostrar password"></p>
+        <p><b>¿Aceptas los <a class="link" href="https://www.mintic.gov.co/portal/inicio/Secciones-auxiliares/Politicas/2627:Politicas-de-Privacidad-y-Condiciones-de-Uso">
+                    términos y condiciones referenciados por el MinTIC para la privacidad de datos vigentes?</b></a>
+            <label for="privacy">sí <input class="form-check-input" type="checkbox" name="privacy" id="privacy"></label>
+        </p>
+
+        <button type="submit">Resgistrarse!</button>
+        <button type="reset">Borrar todos los campos</button>
+
+    </form>
+    <br><br><br>
+    <a class="link" href="/">Volver a la página de inicio de sesión</a>
+
+    <script src="{{ url_for('static', filename='js/registration.js') }}"></script>  
+
+{% endblock %}

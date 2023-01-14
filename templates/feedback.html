@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Feedback {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container-fluid row align-items-start">
+        <div class="container-fluid col-2 text-start"><a href='/home' class="btn btn-dark" style="margin: 10px;"> Atrás </a></div> 
+        <div class="col-2"></div>
+        <div class="col-4"><img src="\static\images\gevora.png" alt="Gevora hotel" width="150"></div>
+        <div class="col-2"></div>
+        <div class="col-2 text-end"><a href="{{ url_for('log_out') }}" class="btn btn-dark" style="margin: 10px;"> Cerrar sesión </a></div>
+    </div>
+</div>  
+<br>
+<h4 id="change2">A continuación podras calificar y comentar nuestra habitación {{i}}</h4>
+<br>
+<br><br><br>
+<form action="/feedback/{{i}}" method="POST">
+<div class="container-fluid row align-items-center">
+    <div class="col-4">      
+    </div>
+    <div class="col-2">
+        <p><label class="" for="">Estrellas: <br>
+        <select name="estrellas" id="estrellas">
+            <option id='1' value="1">✰</option>
+            <option id='2' value="2">✰✰</option>
+            <option id='3' value="3">✰✰✰</option>
+            <option id='4' value="4">✰✰✰✰</option>
+            <option id='5' value="5">✰✰✰✰✰</option>
+        </select></label></p>    
+        <br>
+        <p><label for="comentario">Comentario: <input type="text" name="comentario" id="comentario"></label></p>
+    </div>
+    <div class="col-2">
+      <button type="submit">Enviar tu feedback!</button>
+    </div>
+    <div class="col-4">        
+    </div>
+</div>
+</form>
+
+<br><br><br><br><br><br><br><br><br>
+<script src="{{ url_for('static', filename='js/homeu.js') }}"></script>  
+{% endblock %}

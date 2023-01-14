@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Gevora - {% block title %} {% endblock %} </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="container-fluid vh-100 gradient-custom"> 
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="bg-dark text-center text-white fixed-bottom">
+        <!-- Grid container -->
+        <div class="container p-3 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-1">
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/camilocastell/" role="button" title="LinkedIn">
+                <i class="fab fa-linkedin-in">
+                    <img src="{{ url_for('static', filename='images/kisspng-linkedin-logo-computer-icons-business-symbol-linkedin-icon-5ab1765660baa8.1191823015215796063962.png') }}" alt="LinkedIn" width="30">
+                </i>
+            </a>
+        
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/camilo6castell" role="button" title="GitHub">
+                <i class="fab fa-github">
+                    <img src="{{ url_for('static', filename='images/kisspng-github-logo-repository-computer-icons-5afa376c51ca94.387166531526347628335.png') }}" alt="GitHub" width="30">
+                </i>
+            </a>
+
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+            Proyecto hecho por Camilo Andrés Castellanos Herrera para <a class="link" href="https://www.misiontic2022.gov.co/portal/">MisiónTIC</a>
+        </div>
+    </footer>
+</body>
+</html>
