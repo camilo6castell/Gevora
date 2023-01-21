@@ -7,11 +7,6 @@ from sqlite3 import Error
 from forms import ReserveForm
 import utils
 
-""" 
-    ** Por favor revisar la carpeta READ -LEER. Encontrará la información sobre este proyecto.
-    ** Please check the folder "READ - LEER". You will find information about this project. 
-"""
-
 app = Flask(__name__)
 app.secret_key = os.urandom( 24 ) #creación de secret key para firmar
 
