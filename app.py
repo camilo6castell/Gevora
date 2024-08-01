@@ -7,7 +7,7 @@ from sqlite3 import Error
 from forms import ReserveForm
 import utils
 
-app = Flask(__name__)
+app = Flask(__name__) 
 app.secret_key = os.urandom( 24 ) #creación de secret key para firmar
 
 #Variable global para validar funciones en las vistas html
@@ -350,3 +350,4 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
+    

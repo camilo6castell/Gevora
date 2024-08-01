@@ -31,10 +31,10 @@ To test my app, you can choose one of three built-in roles.
 
 ### 1. As a regular user
 
- For this role, you could create your own account by using the _link_ register show as _"¡registrate acá!_ or you could use the following credentials to get in to the system.
+For this role, you could create your own account by using the _link_ register show as _"¡registrate acá!_ or you could use the following credentials to get in to the system.
 
-><pre>User: 'Usuario5@usuario5.com'
->Password: 'Usuario5@usuario5.com'
+> <pre>User: 'Usuario5@usuario5.com'
+> Password: 'Usuario5@usuario5.com'
 
 This type of user can
 
@@ -46,8 +46,8 @@ This type of user can
 
 The is not the option for create this kind of role, to get in to this role yo need the following credentials
 
-><pre>User: 'Admin1@admin1.com'
->Password: 'Admin1@admin1.com'
+> <pre>User: 'Admin1@admin1.com'
+> Password: 'Admin1@admin1.com'
 
 This type of user can
 
@@ -58,8 +58,8 @@ This type of user can
 
 The is not the option for create this kind of role, to get in to this role yo need the following credentials
 
-><pre>User: 'Superadmin1@superadmin1.com'
->Password: 'Superadmin1@superadmin1.com'
+> <pre>User: 'Superadmin1@superadmin1.com'
+> Password: 'Superadmin1@superadmin1.com'
 
 This type of user can
 
@@ -67,10 +67,8 @@ This type of user can
 2. The ability to delete existing rooms or add avaible rooms
 3. Download list of the existing regular user and the hotel's logo
 
-
 ## Document
 
 The formal document (in spanish) for this project is shown below
 
-[Google Drive](https://drive.google.com/file/d/1jNRWiZayYjH6oB6RYoh2DREHNDbvd9ix/view?usp=sharing)
-
+[Google Drive](https://drive.google.com/file/d/1F8EJpUUdS_Lxe71ro3lQH4UqUQknG8C1/view?usp=sharing)
