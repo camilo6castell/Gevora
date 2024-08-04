@@ -1,9 +1,9 @@
+# Gevora. _Hotel management system_
+
 ![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![PythonAnywhere](https://img.shields.io/badge/PythonAnywhere-0066ff?style=for-the-badge&logo=python&logoColor=white)
-
-# Gevora. _Hotel management system_
 
 ## About
 
